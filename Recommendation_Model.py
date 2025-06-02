@@ -68,13 +68,31 @@ def remove_stopwords(text):
 df['details'] = df['details'].apply(lambda text: remove_stopwords(text))
 df.head()
 
+# Removing punctuations
 punctuations_list = string.punctuation
 
 
+# Function to remove punctuations from the text
 def cleaning_punctuations(text):
 	signal = str.maketrans('', '', punctuations_list)
 	return text.translate(signal)
 
 
+# Applying the function to the details column
 df['details'] = df['details'].apply(lambda x: cleaning_punctuations(x))
 df.head()
+
+# Creating a word cloud to visualize the most common words in the details column
+details_corpus = " ".join(df['details'])
+
+plt.figure(figsize=(20, 20))
+wc = WordCloud(max_words=1000,
+			width=800,
+			height=400).generate(details_corpus)
+plt.axis('off')
+plt.imshow(wc)
+plt.show()
+
+# Creating a TF-IDF Vectorizer
+vectorizer = TfidfVectorizer(analyzer = 'word')
+vectorizer.fit(df['details'])
