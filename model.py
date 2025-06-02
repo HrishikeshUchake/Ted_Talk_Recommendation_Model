@@ -49,18 +49,13 @@ data = df.copy()
 # Removing punctuation and stopwords
 def remove_stopwords(text):
   stop_words = stopwords.words('english')
-
   imp_words = []
-
   # Storing the important words
   for word in str(text).split():
     word = word.lower()
-
     if word not in stop_words:
       imp_words.append(word)
-
   output = " ".join(imp_words)
-
   return output
 
 
@@ -99,43 +94,32 @@ vectorizer.fit(df['details'])
 
 # Function to get similarities for a given talk content
 def get_similarities(talk_content, data=df):
-
 	# Getting vector for the input talk_content.
 	talk_array1 = vectorizer.transform(talk_content).toarray()
-
 	# We will store similarity for each row of the dataset.
 	sim = []
 	pea = []
 	for idx, row in data.iterrows():
 		details = row['details']
-
 		# Getting vector for current talk.
 		talk_array2 = vectorizer.transform(
 			data[data['details'] == details]['details']).toarray()
-
 		# Calculating cosine similarities
 		cos_sim = cosine_similarity(talk_array1, talk_array2)[0][0]
-
 		# Calculating pearson correlation
 		pea_sim = pearsonr(talk_array1.squeeze(), talk_array2.squeeze())[0]
-
 		sim.append(cos_sim)
 		pea.append(pea_sim)
-
 	return sim, pea
 
 # Function to get the top similar/recommended talks
 def recommend_talks(talk_content, data=data):
-
 	data['cos_sim'], data['pea_sim'] = get_similarities(talk_content)
-
 	data.sort_values(by=['cos_sim', 'pea_sim'], ascending=[
 					False, False], inplace=True)
-
 	print(data[['main_speaker', 'details']].head())
-	
 
-
+# Example usage
 talk_content = ['Time Management and working\
 hard to become successful in life']
 
