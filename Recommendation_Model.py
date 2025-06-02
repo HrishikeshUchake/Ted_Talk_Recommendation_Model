@@ -41,3 +41,40 @@ df['details'] = df['title'] + ' ' + df['details']
 df = df[['main_speaker', 'details']]
 df.dropna(inplace = True)
 df.head()
+
+# Making a copy of this data for future use.
+data = df.copy()
+
+
+# Removing punctuation and stopwords
+def remove_stopwords(text):
+  stop_words = stopwords.words('english')
+
+  imp_words = []
+
+  # Storing the important words
+  for word in str(text).split():
+    word = word.lower()
+
+    if word not in stop_words:
+      imp_words.append(word)
+
+  output = " ".join(imp_words)
+
+  return output
+
+
+# Applying the function to the details column
+df['details'] = df['details'].apply(lambda text: remove_stopwords(text))
+df.head()
+
+punctuations_list = string.punctuation
+
+
+def cleaning_punctuations(text):
+	signal = str.maketrans('', '', punctuations_list)
+	return text.translate(signal)
+
+
+df['details'] = df['details'].apply(lambda x: cleaning_punctuations(x))
+df.head()
