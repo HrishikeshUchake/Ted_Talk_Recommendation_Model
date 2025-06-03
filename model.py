@@ -114,10 +114,10 @@ def get_similarities(talk_content, data=df):
 
 # Function to get the top similar/recommended talks
 def recommend_talks(talk_content, data=data):
-	data['cos_sim'], data['pea_sim'] = get_similarities(talk_content)
-	data.sort_values(by=['cos_sim', 'pea_sim'], ascending=[
-					False, False], inplace=True)
-	print(data[['main_speaker', 'details']].head())
+    data['cos_sim'], data['pea_sim'] = get_similarities(talk_content)
+    data.sort_values(by=['cos_sim', 'pea_sim'], ascending=[False, False], inplace=True)
+    return data[['main_speaker', 'details']].head(5).to_dict(orient='records')
+
 
 # Example usage
 talk_content = ['Time Management and working\
