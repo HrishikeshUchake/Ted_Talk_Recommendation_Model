@@ -2,6 +2,8 @@
 
 A machine learning-powered web app that recommends similar TED Talks based on user-inputted topics. Built with Streamlit, NLP, and deployed using Docker.
 
+The model converts the user input into a TF-IDF vector and makes decisions based on the cosine similarity and Pearson correlation between the input vector and the dataset, and returns the TED talk that has the highest similarity. 
+
 ---
 
 ## Features
