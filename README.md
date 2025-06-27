@@ -22,7 +22,7 @@ The model converts the user input into a TF-IDF vector and makes decisions based
 ```bash
 docker pull hrishikeshuchake/ted-streamlit
 
-docker run -p 8501:8501 hrishikeshu/ted-streamlit
+docker run -p 8501:8501 hrishikeshuchake/ted-streamlit
 ```
 
 Visit: http://localhost:8501
