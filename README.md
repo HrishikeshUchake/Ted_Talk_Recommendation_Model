@@ -1,6 +1,6 @@
 # TED Talk Recommender
 
-A content-based machine learning application that recommends relevant TED Talks based on user-input topics. Built using **NLP techniques**, a **Streamlit web interface**, and deployed via **Docker** for cross-platform accessibility.
+A content-based machine learning application that recommends the best relevant TED Talks based on user-input topics. Built using **NLP techniques**, a **Streamlit web interface**, and deployed via **Docker** for cross-platform accessibility.
 
 This project leverages **TF-IDF vectorization** and **cosine similarity** to identify and recommend talks similar to the user's idea or interest.
 
