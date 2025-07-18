@@ -25,7 +25,7 @@ This project leverages **TF-IDF vectorization** and **cosine similarity** to ide
 
 ---
 
-## 📦 Run Locally with Docker
+## Run Locally with Docker
 
 ### Step 1: Pull the Docker image
 
@@ -43,20 +43,20 @@ Then open your browser and visit: [http://localhost:8501](http://localhost:8501)
 
 ---
 
-## 📁 Dataset
+## Dataset
 
 This app uses a cleaned dataset of TED Talk transcripts and metadata from Kaggle, preprocessed for NLP. The input is vectorized using **TF-IDF**, and similar talks are identified using **cosine similarity** and **Pearson correlation**.
 
 ---
 
 
-## 📄 License
+## License
 
 MIT License. Feel free to fork, adapt, and build on top of it!
 
 ---
 
-## 👤 Author
+## Author
 
 Developed by [Hrishikesh Uchake](https://github.com/HrishikeshUchake)
 
