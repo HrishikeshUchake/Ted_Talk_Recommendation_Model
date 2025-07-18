@@ -40,6 +40,7 @@ docker run -p 8501:8501 hrishikeshuchake/ted-streamlit
 ```
 
 Then open your browser and visit: [http://localhost:8501](http://localhost:8501)
+<img width="1920" height="534" alt="Screenshot 2025-07-18 at 1 49 30 PM" src="https://github.com/user-attachments/assets/1edf2904-9a0a-4873-ab9e-c7a5f714bd15" />
 
 ---
 
